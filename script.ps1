@@ -41,4 +41,3 @@ Try {
 Catch {
     	Write-Host "Error sending email: $_"
 }
-
